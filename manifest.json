@@ -1,0 +1,9 @@
+{
+  "id": "literaturamusical-lessons-sample",
+  "name": "Lecciones de Muestra (Sample)",
+  "type": "storage",
+  "version": "1.0.0",
+  "author": "flachica",
+  "description": "Repositorio de prueba y catálogo de muestra para lecciones de Literatura Musical.",
+  "repository": "git@github.com:flachica/literaturamusical-lessons-sample.git"
+}
