@@ -1,8 +1,12 @@
 # Archivos de audio descargados localmente (nunca subir a Git)
+audio/
+public/audio/
 *.webm
 *.m4a
 *.mp3
 *.wav
 *.ogg
 *.flac
+*.bak
 .DS_Store
+
