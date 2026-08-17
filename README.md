@@ -16,15 +16,21 @@ La arquitectura de **LitMusical** permite conectar diferentes repositorios de al
 
 ```
 literaturamusical-lessons-sample/
-├── manifest.json            # Metadatos del plugin (id, nombre, tipo storage, versión)
-├── README.md                # Documentación del plugin
-├── .gitignore               # Exclusión estricta de audios descargados (*.webm, *.m4a, *.mp3)
+├── manifest.json                    # Metadatos del plugin (id, nombre, tipo storage, versión)
+├── README.md                        # Documentación del plugin
+├── .gitignore                       # Exclusión estricta de audios descargados (*.webm, *.m4a, *.mp3)
 ├── figures/
-│   └── figuras_catalog.json # Catálogo de figuras literarias (Metáfora, Símil, etc.)
+│   └── figuras_catalog.json         # Catálogo de figuras literarias (Metáfora, Símil, etc.)
 ├── songs/
-│   └── songs_catalog.json   # Catálogo de canciones y versos sincronizados con retos
-└── dictionary/
-    └── rae_dictionary.json  # Diccionario RAE infantil (definiciones para palabras complejas)
+│   └── songs_catalog.json           # Catálogo de canciones y versos sincronizados con retos
+├── dictionary/
+│   └── rae_dictionary.json          # Diccionario RAE infantil (definiciones para palabras complejas)
+├── detectives/
+│   └── detectives.json              # Perfiles de detectives, puntos, nivel, estrellas y medallas
+├── progress/
+│   └── user_progress.json           # Estado de puntos acumulados del jugador
+└── suggestions/
+    └── sugerencias_detectives.json  # Propuestas del Buzón Familiar creadas por detectives
 ```
 
 ---
