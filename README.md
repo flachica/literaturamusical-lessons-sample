@@ -44,6 +44,9 @@ literaturamusical-lessons-sample/
 1. **Clonar en el directorio de plugins de LitMusical:**
    ```bash
    cd /ruta/a/litmusical/plugins/
+   # Opción HTTPS (Recomendada):
+   git clone https://github.com/flachica/literaturamusical-lessons-sample.git
+   # Opción SSH:
    git clone git@github.com:flachica/literaturamusical-lessons-sample.git
    ```
 
@@ -132,7 +135,19 @@ El campo `youtubeUrl` (o `audioPreviewUrl`) en el catálogo permite a LitMusical
 
 ---
 
-## 🔗 Repositorio Oficial
+## 🔗 Repositorios del Ecosistema LitMusical
 
-- **URL del Repositorio:** `git@github.com:flachica/literaturamusical-lessons-sample.git`
-- **Autor / Mantenedor:** flachica
+Para explorar, clonar o investigar el proyecto completo, aquí están los enlaces a los repositorios públicos del ecosistema:
+
+| Repositorio | Tipo | Descripción | Enlace Web (GitHub) | Comando de Clonación |
+| :--- | :--- | :--- | :--- | :--- |
+| 📱 **LitMusical App** | Aplicación Web | Plataforma PWA principal (*Escuela de Detectives*) | [flachica/literaturamusical-teacher](https://github.com/flachica/literaturamusical-teacher) | `git clone https://github.com/flachica/literaturamusical-teacher.git` |
+| 🧪 **Storage Sample** | Storage Plugin | *(Este repositorio)* Plantilla de muestra limpia para pruebas y desarrollo | [flachica/literaturamusical-lessons-sample](https://github.com/flachica/literaturamusical-lessons-sample) | `git clone https://github.com/flachica/literaturamusical-lessons-sample.git` |
+
+---
+
+## 👤 Autor y Mantenedor
+
+- **Autor:** flachica
+- **Licencia:** Proyecto educativo y didáctico colaborativo.
+
