@@ -1,12 +1,16 @@
-# 🎵📚 Plugin Storage de Prueba: Literatura Musical (Sample Lessons)
+# 🎵📚 Plugin Storage: Literatura Musical (Sample Lessons)
 
-Este repositorio es un **Plugin de Almacenamiento (Storage Plugin)** de prueba y muestra para la aplicación **LitMusical** (Escuela de Detectives Literarios).
+[![Plugin Type](https://img.shields.io/badge/Plugin--Type-Storage-blue.svg)](https://github.com/flachica/literaturamusical-lessons-sample)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](manifest.json)
+[![LitMusical Compatible](https://img.shields.io/badge/LitMusical-Compatible-purple.svg)](https://github.com/flachica/literaturamusical-lessons-sample)
+
+Este repositorio es un **Plugin de Almacenamiento (Storage Plugin)** de prueba y muestra para la aplicación **LitMusical** (*Escuela de Detectives Literarios*).
 
 ---
 
 ## 🎯 Propósito del Repositorio
 
-Servir como fuente desacoplada e intercambiable de catálogo de lecciones, canciones poéticas, versos sincronizados, cuestionarios de comprensión y diccionario infantil.
+Servir como fuente desacoplada e intercambiable de catálogo de lecciones, canciones poéticas, versos sincronizados, cuestionarios de comprensión, perfiles de detectives y diccionario infantil.
 
 La arquitectura de **LitMusical** permite conectar diferentes repositorios de almacenamiento de tipo `storage` sin necesidad de modificar el código fuente de la aplicación principal. Este plugin `literaturamusical-lessons-sample` provee una base limpia/vacía lista para pruebas, desarrollo y creación de nuevos contenidos pedagógicos.
 
@@ -14,24 +18,40 @@ La arquitectura de **LitMusical** permite conectar diferentes repositorios de al
 
 ## 📁 Estructura del Repositorio
 
-```
+```text
 literaturamusical-lessons-sample/
 ├── manifest.json                    # Metadatos del plugin (id, nombre, tipo storage, versión)
-├── README.md                        # Documentación del plugin
-├── .gitignore                       # Exclusión estricta de audios descargados (*.webm, *.m4a, *.mp3)
+├── README.md                        # Documentación principal del plugin
+├── .gitignore                       # Exclusión estricta de audios descargados (*.webm, *.m4a, *.mp3, etc.)
 ├── figures/
 │   └── figuras_catalog.json         # Catálogo de figuras literarias (Metáfora, Símil, etc.)
 ├── songs/
 │   └── songs_catalog.json           # Catálogo de canciones y versos sincronizados con retos
 ├── dictionary/
-│   └── rae_dictionary.json          # Diccionario RAE infantil (definiciones para palabras complejas)
+│   └── rae_dictionary.json          # Diccionario RAE infantil (definiciones adaptadas)
 ├── detectives/
 │   └── detectives.json              # Perfiles de detectives, puntos, nivel, estrellas y medallas
 ├── progress/
-│   └── user_progress.json           # Estado de puntos acumulados del jugador
+│   └── user_progress.json           # Estado de puntos acumulados y nivel global del jugador
 └── suggestions/
     └── sugerencias_detectives.json  # Propuestas del Buzón Familiar creadas por detectives
 ```
+
+---
+
+## 🚀 Instalación y Uso
+
+1. **Clonar en el directorio de plugins de LitMusical:**
+   ```bash
+   cd /ruta/a/litmusical/plugins/
+   git clone git@github.com:flachica/literaturamusical-lessons-sample.git
+   ```
+
+2. **Detección Automática:**
+   Al iniciar LitMusical, la aplicación escanea la carpeta `plugins/`, detecta el archivo `manifest.json` y registra el plugin como fuente de datos `storage`.
+
+3. **Edición y Sincronización:**
+   > ⚠️ **Regla de Almacenamiento:** LitMusical admite **un solo plugin activo de tipo `"storage"`** a la vez. Cuando este plugin está activo en `plugins/`, todas las adiciones y ediciones realizadas desde el **Modo Admin** de la aplicación se guardarán y sincronizarán directamente en los archivos JSON de este repositorio.
 
 ---
 
@@ -49,13 +69,24 @@ literaturamusical-lessons-sample/
 }
 ```
 
-> **Regla de Almacenamiento:** En la aplicación **LitMusical** se admite **uno y solo un plugin activo de tipo `"storage"`** a la vez. Cuando este plugin está instalado en `plugins/`, todas las adiciones y ediciones de lecciones desde el Modo Admin se sincronizarán directamente en sus ficheros JSON.
+---
+
+## 📊 Descripción de las Colecciones de Datos
+
+| Directorio | Archivo | Descripción |
+| :--- | :--- | :--- |
+| `figures/` | `figuras_catalog.json` | Definiciones pedagógicas de figuras retóricas (Metáfora, Símil, Personificación, Hipérbole, Anáfora, Aliteración), colores, iconos y insignias. |
+| `songs/` | `songs_catalog.json` | Catálogo de canciones con metadatos, enlace a vídeo/audio, versos sincronizados y preguntas de comprensión. |
+| `dictionary/` | `rae_dictionary.json` | Diccionario adaptado a niños con definiciones simplificadas para palabras complejas encontradas en las canciones. |
+| `detectives/` | `detectives.json` | Lista de perfiles de detectives creados en la aplicación, sus avatars, insignias y progresos individuales. |
+| `progress/` | `user_progress.json` | Progreso acumulado general (puntos totales, nivel actual y estrellas). |
+| `suggestions/` | `sugerencias_detectives.json` | Mensajes y canciones propuestas a través del Buzón Familiar. |
 
 ---
 
 ## 🎵 Esquema de Datos de Canción (`songs/songs_catalog.json`)
 
-Cada canción contiene la letra sincronizada con marcas de tiempo LRC (`tiempoInicio`, `tiempoFin`), preguntas de comprensión didáctica y etiquetado de figuras poéticas:
+Cada canción incluye sincronización temporal tipo LRC (`tiempoInicio`, `tiempoFin`), preguntas de comprensión e identificación de figuras literarias:
 
 ```json
 [
@@ -93,13 +124,15 @@ Cada canción contiene la letra sincronizada con marcas de tiempo LRC (`tiempoIn
 
 ---
 
-## 🔒 Privacidad y Gestión de Audios
+## 🔒 Privacidad y Gestión de Archivos Multimedia
 
-Los archivos de audio pesado (`*.webm`, `*.m4a`, `*.mp3`) **NUNCA** se almacenan en este repositorio Git.
-El campo `youtubeUrl` o `audioPreviewUrl` en el catálogo permite que la aplicación principal descargue o reescriba de manera transparente el audio local en el navegador o backend local de la persona que juega.
+Los archivos de audio pesado (`*.webm`, `*.m4a`, `*.mp3`, `*.wav`, `*.ogg`, `*.flac`) están **estrictamente excluidos** del control de versiones mediante `.gitignore`.
+
+El campo `youtubeUrl` (o `audioPreviewUrl`) en el catálogo permite a LitMusical descargar o reproducir el contenido multimedia localmente en el dispositivo del usuario sin saturar el repositorio Git.
 
 ---
 
-## 🔗 Repositorio Git Oficial
+## 🔗 Repositorio Oficial
 
-- **Remote URL:** `git@github.com:flachica/literaturamusical-lessons-sample.git`
+- **URL del Repositorio:** `git@github.com:flachica/literaturamusical-lessons-sample.git`
+- **Autor / Mantenedor:** flachica
